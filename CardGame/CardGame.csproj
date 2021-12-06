@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,61 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\clubs\0.png" />
+    <Content Include="Resources\clubs\1.png" />
+    <Content Include="Resources\clubs\10.png" />
+    <Content Include="Resources\clubs\11.png" />
+    <Content Include="Resources\clubs\12.png" />
+    <Content Include="Resources\clubs\2.png" />
+    <Content Include="Resources\clubs\3.png" />
+    <Content Include="Resources\clubs\4.png" />
+    <Content Include="Resources\clubs\5.png" />
+    <Content Include="Resources\clubs\6.png" />
+    <Content Include="Resources\clubs\7.png" />
+    <Content Include="Resources\clubs\8.png" />
+    <Content Include="Resources\clubs\9.png" />
+    <Content Include="Resources\diamonds\0.png" />
+    <Content Include="Resources\diamonds\1.png" />
+    <Content Include="Resources\diamonds\10.png" />
+    <Content Include="Resources\diamonds\11.png" />
+    <Content Include="Resources\diamonds\12.png" />
+    <Content Include="Resources\diamonds\2.png" />
+    <Content Include="Resources\diamonds\3.png" />
+    <Content Include="Resources\diamonds\4.png" />
+    <Content Include="Resources\diamonds\5.png" />
+    <Content Include="Resources\diamonds\6.png" />
+    <Content Include="Resources\diamonds\7.png" />
+    <Content Include="Resources\diamonds\8.png" />
+    <Content Include="Resources\diamonds\9.png" />
+    <Content Include="Resources\hearts\0.png" />
+    <Content Include="Resources\hearts\1.png" />
+    <Content Include="Resources\hearts\10.png" />
+    <Content Include="Resources\hearts\11.png" />
+    <Content Include="Resources\hearts\12.png" />
+    <Content Include="Resources\hearts\2.png" />
+    <Content Include="Resources\hearts\3.png" />
+    <Content Include="Resources\hearts\4.png" />
+    <Content Include="Resources\hearts\5.png" />
+    <Content Include="Resources\hearts\6.png" />
+    <Content Include="Resources\hearts\7.png" />
+    <Content Include="Resources\hearts\8.png" />
+    <Content Include="Resources\hearts\9.png" />
+    <Content Include="Resources\spades\0.png" />
+    <Content Include="Resources\spades\1.png" />
+    <Content Include="Resources\spades\10.png" />
+    <Content Include="Resources\spades\11.png" />
+    <Content Include="Resources\spades\12.png" />
+    <Content Include="Resources\spades\2.png" />
+    <Content Include="Resources\spades\3.png" />
+    <Content Include="Resources\spades\4.png" />
+    <Content Include="Resources\spades\5.png" />
+    <Content Include="Resources\spades\6.png" />
+    <Content Include="Resources\spades\7.png" />
+    <Content Include="Resources\spades\8.png" />
+    <Content Include="Resources\spades\9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
