@@ -12,57 +12,75 @@ namespace CardGame
 {
     public partial class Form1 : Form
     {
+        public PictureBox[] pictureBoxArray = new PictureBox[5];
 
         public static Random rnd = new Random();
+        Card[] deck = new Card[52];
         Card[] hand = new Card[5];
+        int currentDeckIndex = -1;
 
         public Form1()
         {
             InitializeComponent();
+
+            pictureBoxArray[0] = pbCardDisplay0;
+            pictureBoxArray[1] = pbCardDisplay1;
+            pictureBoxArray[2] = pbCardDisplay2;
+            pictureBoxArray[3] = pbCardDisplay3;
+            pictureBoxArray[4] = pbCardDisplay4;
         }
 
         private void btnCreateDeck_Click(object sender, EventArgs e)
         {
-            DrawCards();
+            CreateDeck();
+            ShuffleDeck();
+            CreateHand();
             DisplayCards();
         }
 
-        void DrawCards()
+        Card DrawCard()
+        {
+            //TODO: What if shuffle cards and pick the same one from shuffled deck
+            
+            currentDeckIndex += 1;
+            if (currentDeckIndex == deck.Length)
+            {
+                ShuffleDeck();
+                currentDeckIndex = 0;
+            }
+
+            return deck[currentDeckIndex];
+        }
+
+        void CreateHand()
         {
             for (int i = 0; i < hand.Length; i++)
             {
-                bool loop = true;
-                while(loop)
-                {
-                    Card tempcard = new Card(rnd);
-                    bool ifInDeck = false;
-                    foreach (Card card in hand)
-                    {
-                        if (card == null)
-                        {
-                            continue;
-                        }
-                        else if (card.ImagePath == tempcard.ImagePath)
-                        {
-                            ifInDeck = true;
-                        }
-                    }
-                    if (ifInDeck == false)
-                    {
-                        hand[i] = tempcard;
-                        loop = false;
-                    }
-                }
+                hand[i] = DrawCard();
             }
+        }
+
+        void CreateDeck()
+        {
+            for (int i = 0; i < deck.Length; i++)
+            {
+                int number = i % 13;
+                int suitIndex = i / 13;
+                deck[i] = new Card(number, suitIndex);
+            }
+        }
+
+        void ShuffleDeck()
+        {
+            deck = deck.OrderBy(x => rnd.Next()).ToArray();
         }
 
         void DisplayCards()
         {
-            pbCardDisplay0.Image = Image.FromFile(hand[0].ImagePath);
-            pbCardDisplay1.Image = Image.FromFile(hand[1].ImagePath);
-            pbCardDisplay2.Image = Image.FromFile(hand[2].ImagePath);
-            pbCardDisplay3.Image = Image.FromFile(hand[3].ImagePath);
-            pbCardDisplay4.Image = Image.FromFile(hand[4].ImagePath);
+            for (int i = 0; i < 5; i++)
+            {
+                pictureBoxArray[i].Image = Image.FromFile(hand[i].ImagePath);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,12 @@ namespace CardGame
         private string imagePath;
         private string[] suitArray = new string[] { "hearts", "spades", "diamonds", "clubs" };
 
-        public Card(Random rnd)
+        public Card(int number, int suitIndex)
         {
-            number = rnd.Next(13);
-            suit = suitArray[rnd.Next(0, 4)];
-            imagePath = @"C:\Users\lewis\Source\Repos\CardGame\CardGame\Resources\" + suit + @"\" + number.ToString() + ".png";
+            this.number = number;
+            suit = suitArray[suitIndex];
+            imagePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\") + @"\CardGame\Resources\" + suit + @"\" + number.ToString() + ".png");
+
         }
 
         public int Number
@@ -35,7 +37,6 @@ namespace CardGame
         public string ImagePath
         {
             get { return imagePath; }
-            set { imagePath = value; }
         }
     }
 }
